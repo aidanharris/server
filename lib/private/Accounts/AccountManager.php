@@ -146,7 +146,7 @@ class AccountManager implements IAccountManager {
 
 		// set a max length
 		foreach ($data as $propertyName => $propertyData) {
-			if(strlen($data[$propertyName]['value']) > 2048) {
+			if(isset($data[$propertyName]) && isset($data[$propertyName]['value']) && strlen($data[$propertyName]['value']) > 2048) {
 				if($throwOnData) {
 					throw new \InvalidArgumentException($propertyName . ' is too long');
 				} else {
